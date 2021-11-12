@@ -1,0 +1,8 @@
+<p>listaexpediente works!</p>
+<nav>
+    <ul>
+        <li *ngFor="let expediente of [{id:'01',nombre:'detalle completo ',alias:'expediente uno'},{id:'02',nombre:'detalle completo',alias:'expediente dos'}]">
+            <a [routerLink]="['/dashboard/expediente',expediente.id]">{{expediente.alias}}</a>
+        </li>
+    </ul>
+</nav>
