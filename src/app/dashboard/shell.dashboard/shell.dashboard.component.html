@@ -1,10 +1,9 @@
 <p>shell.dashboard works!</p>
 <button (click)="addObra()" >agregar</button>
 
-<p *ngFor="let val of data1">
-{{val.id}}
-</p>
+{{data$ | async | json}}
 
+<!--
 
 <div class="wrapper">
     <div *ngFor="let product of products" class="card">
@@ -15,3 +14,6 @@
         <p><button>Add to Cart</button></p>
     </div>
 </div>
+
+
+-->

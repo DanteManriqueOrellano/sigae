@@ -9,7 +9,11 @@ import { NuevoEjecucionObraServiceGQL } from '../mutations/nuevo.ejecucion.obra.
 import { ListaEjecucionObraServiceGQL } from '../queries/lista.ejecucion.obra.serviceGQL'
 
 
-@Injectable()
+@Injectable(
+  {
+    providedIn:'root'
+  }
+)
 export class ListServicesEjecucionObraGQL {
   constructor(
     private nuevoEjecucionObraService:NuevoEjecucionObraServiceGQL,

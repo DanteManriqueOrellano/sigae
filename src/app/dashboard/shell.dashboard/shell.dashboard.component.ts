@@ -20,18 +20,14 @@ import { EObra } from 'src/app/core/models/obra';
 export class ShellDashboardComponent implements OnInit {
 
   
-  products: Product[];
-  ejecucionobramodel: IEjecucionObraModel = {
-    id: '',
-    nombrecompletoobra: '',
-    alias: ''
-  }
+  ejecucionObra: IEjecucionObraModel[];
+  
 
   data$:Observable<IEjecucionObraModel[]>
   data1:any
-  constructor(private router:Router,private route:ActivatedRoute,public readonly service: ObraService,private ejecucionObraServiceGQL:ListServicesEjecucionObraGQL) { 
+  constructor(private router:Router,private route:ActivatedRoute,private ejecucionObraServiceGQL:ListServicesEjecucionObraGQL) { 
     
-    this.products = this.route.snapshot.data['aliasRouteObra'];
+    this.ejecucionObra = this.route.snapshot.data['aliasRouteObra'];
     
    
 
@@ -39,20 +35,17 @@ export class ShellDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     //this.id = this.route.snapshot.paramMap.get("id")//trae de la interfaz anterior
-    this.ejecucionObraServiceGQL.listaEjecucionObra().subscribe((val:any)=>{
-      this.data1 = val.listaEjecucionObra
-      
-
-    })
+    this.data$ = this.ejecucionObraServiceGQL.listaEjecucionObra()
   }
   addObra(){
-    this.ejecucionObraServiceGQL.agregar({id:"",nombrecompletoobra:"dos",alias:"tres"})
+    /*this.ejecucionObraServiceGQL.agregar({id:"",nombrecompletoobra:"dos",alias:"tres"})
       
       .pipe(
         first(),
         tap(() => (this.ejecucionobramodel))
       )
       .subscribe()
+      */
   }
  
 
