@@ -15,26 +15,21 @@ export class HomeListaobrasComponent implements OnInit{
  
   loading = false;
   obras$:Observable<IEjecucionObraModel[]>
+  obras:IEjecucionObraModel[]
 
-  constructor(private router:Router,private route:ActivatedRoute,private spinner: NgxSpinnerService,private obrasServiceGQL:ListServicesEjecucionObraGQL) { 
-    /*this.router.events.subscribe(ev => {
-      if (ev instanceof NavigationStart) {
-        this.loading = true;
-      }
-      if (ev instanceof NavigationEnd || ev instanceof NavigationCancel || ev instanceof NavigationError) {
-        this.loading = false;
-      }
-    });*/
-    this.obras$ = this.obrasServiceGQL.listaEjecucionObra()
+  constructor(private router:Router,private route:ActivatedRoute,public spinner: NgxSpinnerService,private obrasServiceGQL:ListServicesEjecucionObraGQL) { 
+    
+    this.obrasServiceGQL.listaEjecucionObra().subscribe((val)=>{
+      this.obras = val
+      console.log(val)
+      this.spinner.hide()
+    })
     }
   ngOnInit(){
      /** spinner starts on init */
      this.spinner.show();
 
-     setTimeout(() => {
-       /** spinner ends after 5 seconds */
-       this.spinner.hide();
-     }, 5000);
+     
   }
 
  
