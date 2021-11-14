@@ -137,11 +137,15 @@ mat-toolbar {
     border-radius: 10px;
     margin: 16px;
     margin-left: 32px;
-    display: flex;
+    /*display: flex;*/
+    /*justify-content: flex-start;
+    align-items: flex-start;*/
+    /*font-size: 15px;*/
+    /*color: ;*/
+  }
+  .cabecera{
     justify-content: center;
     align-items: center;
-    font-size: 15px;
-    /*color: ;*/
   }
   
   mat-sidenav-container {

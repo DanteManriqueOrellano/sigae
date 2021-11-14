@@ -41,7 +41,7 @@ export class ShellDashboardComponent implements OnDestroy {
   
   subs:Subscription
   id:string | null
-  data:IEjecucionObraModel
+  alias:string
 
   constructor(
     private observer: BreakpointObserver,
@@ -51,6 +51,7 @@ export class ShellDashboardComponent implements OnDestroy {
     private busca:BuscaByIdEjecucionObraServiceGQL,
     public spinner: NgxSpinnerService,
     ) {
+      this.spinner.show()
       this.router.events.subscribe(ev => {
         if (ev instanceof NavigationStart) {
           this.loading = true;
@@ -65,7 +66,7 @@ export class ShellDashboardComponent implements OnDestroy {
   }
   ngOnDestroy(): void {
   
-   // this.subs.unsubscribe()
+   this.subs.unsubscribe()
     
   }
 
@@ -89,12 +90,14 @@ export class ShellDashboardComponent implements OnDestroy {
         this.sidenav.open();
       }
     });
-    //this.id = this.route.snapshot.paramMap.get("id")//trae de la interfaz anterior
-    //console.log(this.id)
-    //this.subs = this.ejecucionObraServiceGQL.buscaobraById(this.busca.document,{id:this.id}).subscribe((val:any)=>{
-      //console.log(val.buscaUnaEjecucionObra)
+    this.id = this.route.snapshot.paramMap.get("id")//trae de la interfaz anterior
+    
+    this.subs = this.ejecucionObraServiceGQL.buscaobraById(this.busca.document,{id:this.id}).subscribe((val:any)=>{
+      const obra = val.buscaUnaEjecucionObra
+      this.alias = obra.alias
+      this.spinner.hide()
       
-    //})
+    })
 }
     
   

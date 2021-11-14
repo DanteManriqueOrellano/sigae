@@ -8,7 +8,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ObraService } from '../core/globalservice/obra.service';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MenuizquierdoComponent } from './menuizquierdo/menuizquierdo.component';
+import { ShellDashboardSubMenuComponent } from './menuizquierdo/shell.dashboard.submenu.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -26,7 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     ShellDashboardComponent,
-    MenuizquierdoComponent,
+    ShellDashboardSubMenuComponent,
     
   ],
   imports: [
