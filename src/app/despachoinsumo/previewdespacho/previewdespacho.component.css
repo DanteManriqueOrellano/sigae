@@ -1,0 +1,41 @@
+.letra{
+    font-size: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 1px; /* cellspacing */
+    
+}
+
+table td, table th {
+    padding: 0px; /* cellpadding */
+    font-size: 10px;
+    
+    
+}
+div{
+    font-size: 10px;
+    
+}
+.alto{
+    height: 306px;
+}
+.despacho{
+    color: rgb(167, 17, 17);
+    
+}
+table{
+    width: 100%;
+}
+
+table, td, th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: gray;
+    font-size: 10px;
+    
+}
+.despacho{text-align: end; padding: 0px;font-size: 10px;}
+

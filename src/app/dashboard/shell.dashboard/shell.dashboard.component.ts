@@ -69,6 +69,10 @@ export class ShellDashboardComponent implements OnDestroy {
    this.subs.unsubscribe()
     
   }
+  despacho(id:string){
+    
+    this.router.navigate(['/despacho',id])
+  }
 
   
     

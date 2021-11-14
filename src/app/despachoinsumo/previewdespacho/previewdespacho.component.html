@@ -1,0 +1,343 @@
+
+
+<button mat-raised-button color="primary" (click)="printJS1()">
+    <mat-icon>add</mat-icon>Create
+  </button>
+  
+  <article id="printJS-form">
+  
+  
+  <div class="container">
+    <div class="row">
+      <div class="despacho">
+        FICHA DE DESPACHO N: 0001
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col border bg-light  letra">
+        A) DATOS QUE ORIGINA EL DESPACHO
+      </div>
+      <div class="col border bg-light text-center letra">
+        FICHA DE REQUERIMIENTO N: 0002
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col border bg-light  letra">
+        B) MATERIALES O INSUMOS SEGUN REQUERIMIENTO
+      </div>
+      
+    </div>
+  
+  
+    
+    <div class="row">
+      <div class="col border bg-light">
+        <table class="table">
+          <thead>
+            <tr >
+              <th scope="col fs-6" >#</th>
+              <th scope="col fs-6" colspan="2">First</th>
+              <th scope="col fs-6">Last</th>
+              <th scope="col fs-6">Handle</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let insumo of insumoscol1;index as i">
+              <th >{{i+1}}</th>
+              <td colspan="2">{{insumo.insumo}}</td>
+              <td>{{insumo.umedida}}</td>
+              <td>{{insumo.categoria}}</td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+      <div class="col border bg-light alto">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col fs-6">#</th>
+              <th scope="col fs-6" colspan="2">First</th>
+              <th scope="col fs-6">Last</th>
+              <th scope="col fs-6">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let insumo of insumoscol2">
+              <th >{{insumo.id}}</th>
+              <td colspan="2">{{insumo.insumo}}</td>
+              <td>{{insumo.umedida}}</td>
+              <td>{{insumo.categoria}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      
+  
+      
+    </div>
+    <div class="row">
+      <div class="col border bg-light">
+        
+        
+        
+        <div class="row">
+          <div class="col border bg-light">
+            C) INFORMACION COMPLEMENTARIA
+          </div>
+          
+        </div>
+        
+        
+        <div class="row">
+          <div class="col border bg-light">
+            FECHA DE PEDIDO
+          </div>
+          <div class="col border bg-light">
+            06/08/2021
+          </div>
+        </div>
+        <div class="row">
+          <div class="col border bg-light">
+            FECHA DE DESPACHO
+          </div>
+          <div class="col border bg-light">
+            07/08/2021
+          </div>
+        </div>
+      </div>
+      <div class="col border bg-light">
+        SELLO
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row ">
+      <h1 class="p-6"> 
+        ------------------------------------------------------------------------------------------
+      </h1>
+      
+  
+    </div>
+  
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col border bg-light text-center despacho">
+        FICHA DE DESPACHO N: 0001
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col border bg-light  letra">
+        A) DATOS QUE ORIGINA EL DESPACHO
+      </div>
+      <div class="col border bg-light text-center letra">
+        FICHA DE REQUERIMIENTO N: 0002
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col border bg-light  letra">
+        B) MATERIALES O INSUMOS SEGUN REQUERIMIENTO
+      </div>
+      
+    </div>
+  
+  
+    
+    <div class="row">
+      <div class="col border bg-light alto">
+        <table class="table">
+          <thead>
+            <tr >
+              <th scope="col fs-6" >#</th>
+              <th scope="col fs-6" colspan="2">First</th>
+              <th scope="col fs-6">Last</th>
+              <th scope="col fs-6">Handle</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th >1</th>
+              <td colspan="2">Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th >2</th>
+              <td colspan="2">Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th >3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <th >4</th>
+              <td colspan="2">Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th >5</th>
+              <td colspan="2">Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th >6</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <th >7</th>
+              <td colspan="2">Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th >8</th>
+              <td colspan="2">Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th >9</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <th >10</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+  
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+      <div class="col border bg-light">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col fs-6">#</th>
+              <th scope="col fs-6" colspan="2">First</th>
+              <th scope="col fs-6">Last</th>
+              <th scope="col fs-6">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th >1</th>
+              <td colspan="2">Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th >2</th>
+              <td colspan="2">Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th >3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <th >4</th>
+              <td colspan="2">Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th >5</th>
+              <td colspan="2">Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th >6</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <th >7</th>
+              <td colspan="2">Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th >8</th>
+              <td colspan="2">Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th >9</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+            </tr>
+            <tr>
+              <th >10</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+  
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      
+  
+      
+    </div>
+    <div class="row">
+      <div class="col border bg-light">
+        <div class="row">
+          <div class="col border bg-light font-size:'10px';">
+            C) INFORMACION COMPLEMENTARIA
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col border bg-light">
+            FECHA DE PEDIDO
+          </div>
+          <div class="col border bg-light">
+            06/08/2021
+          </div>
+        </div>
+        <div class="row">
+          <div class="col border bg-light">
+            FECHA DE DESPACHO
+          </div>
+          <div class="col border bg-light">
+            07/08/2021
+          </div>
+        </div>
+      </div>
+      <div class="col border bg-light">
+        SELLO
+      </div>
+    </div>
+  </div>
+  </article>
+  <article id="imprime">

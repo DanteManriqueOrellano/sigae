@@ -31,14 +31,14 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
   
-        <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+        <img class="avatar mat-elevation-z8" src="../../assets/img/cabecera.png" />
   
         <h4 class="name">DESCRIPCIÓN GENERAL</h4>
         <p class="designation">Análisis Económico Financiero</p>
   
-        <mat-divider></mat-divider>
-  
-        <button mat-button class="menu-button" (click)=goToInsumo()>
+
+
+        <button mat-button class="menu-button" >
             <mat-icon>home</mat-icon>
             <span class="designation">Flujos</span>
         </button>
@@ -50,11 +50,11 @@
         <mat-divider></mat-divider>
         <button mat-button class="menu-button">
             <mat-icon>info</mat-icon>
-            <span class="designation">Despacho</span>
+            <span class="designation" [routerLink]="['despacho']">Despacho</span>
         </button>
   
         <mat-divider></mat-divider>
-  
+
         
   
     </mat-sidenav>

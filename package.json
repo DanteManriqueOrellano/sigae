@@ -24,6 +24,7 @@
     "@ncstate/sat-popover": "^8.0.1",
     "apollo-angular": "^2.6.0",
     "graphql": "^15.0.0",
+    "ngx-print": "^1.2.1",
     "ngx-spinner": "^12.0.0",
     "ngx-sub-form": "^5.1.2",
     "print-js": "^1.6.0",
