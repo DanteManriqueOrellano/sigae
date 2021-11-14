@@ -7,9 +7,19 @@ import { ObraResolveRoute } from './resolversrouters/obra.resolve.route';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ObraService } from '../core/globalservice/obra.service';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MenuizquierdoComponent } from './menuizquierdo/menuizquierdo.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { LayoutModule } from '@angular/cdk/layout';
+
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
+
+
 
 @NgModule({
   declarations: [
@@ -18,10 +28,18 @@ import { MenuizquierdoComponent } from './menuizquierdo/menuizquierdo.component'
   ],
   imports: [
     CommonModule,
+
     DashboardRoutingModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    NgxSpinnerModule
+    MatSidenavModule,
+    NgxSpinnerModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatSelectModule,
     
 
   ],

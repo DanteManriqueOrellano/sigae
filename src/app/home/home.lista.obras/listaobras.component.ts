@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { Observable, observable, Subscriber } from 'rxjs';
+import {  Subscription } from 'rxjs';
 import { LoadingService } from 'src/app/core/globalservice/LoadingService';
 import { ObraService } from 'src/app/core/globalservice/obra.service';
 import { NgxSpinnerService } from "ngx-spinner";
@@ -14,19 +14,19 @@ import { IEjecucionObraModel } from 'src/app/core/globalservice/ejecucion.obra/m
 export class HomeListaobrasComponent implements OnInit,OnDestroy{
  
   loading = false;
-  subs:Subscriber<IEjecucionObraModel[]>
+  subs:Subscription
   obras:IEjecucionObraModel[]
 
   constructor(private router:Router,private route:ActivatedRoute,public spinner: NgxSpinnerService,private obrasServiceGQL:ListServicesEjecucionObraGQL) { 
     
-    this.obrasServiceGQL.listaEjecucionObra().subscribe((val:any)=>{
+    this.subs = this.obrasServiceGQL.listaEjecucionObra().subscribe((val:any)=>{
       this.obras = val.listaEjecucionObra
       console.log(val)
       this.spinner.hide()
     })
     }
   ngOnDestroy(): void {
-    this.subs.complete();
+    
     this.subs.unsubscribe();
     
   }
