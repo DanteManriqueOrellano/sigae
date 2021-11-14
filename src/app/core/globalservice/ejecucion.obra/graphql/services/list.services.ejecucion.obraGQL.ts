@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core'
-import { Mutation, Query } from 'apollo-angular'
+import { resultKeyNameFromField } from '@apollo/client/utilities'
+import { Apollo, Mutation, Query } from 'apollo-angular'
 
 import { Observable } from 'rxjs'
 import { map, take, tap } from 'rxjs/operators'
 import { EjecucionObraResponse, IEjecucionObraModel } from '../../models/ejecucion.obra.model'
 
 import { NuevoEjecucionObraServiceGQL } from '../mutations/nuevo.ejecucion.obra.serviceGQL'
+import { BuscaByIdEjecucionObraServiceGQL } from '../queries/buscaById.ejecucion.obra.serviceGQL'
 import { ListaEjecucionObraServiceGQL } from '../queries/lista.ejecucion.obra.serviceGQL'
 
 
@@ -16,8 +18,10 @@ import { ListaEjecucionObraServiceGQL } from '../queries/lista.ejecucion.obra.se
 )
 export class ListServicesEjecucionObraGQL {
   constructor(
+    private apollo:Apollo,
     private nuevoEjecucionObraService:NuevoEjecucionObraServiceGQL,
-    private listaEjecucionObraService:ListaEjecucionObraServiceGQL
+    private listaEjecucionObraService:ListaEjecucionObraServiceGQL,
+    private buscaEjecucionObraById: BuscaByIdEjecucionObraServiceGQL
   ){
 
   }
@@ -55,11 +59,20 @@ export class ListServicesEjecucionObraGQL {
     .valueChanges.pipe(
       map((result)=>result.data)
     )//.subscribe()
-                                            
-                                          
-               
-
-
+                                        
   }
+  buscaobraById<T>(query:any,variables:{}):Observable<T>{
+    //return this.buscaEjecucionObraById.watch().valueChanges.pipe(map((result)=>result.data))
+    
+      return this.apollo.watchQuery<T>({
+        query,
+        variables
+      })
+        .valueChanges.pipe(
+          map(({data}) => data)
+        );
+    
+  }
+  
   
 }

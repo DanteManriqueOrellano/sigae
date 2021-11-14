@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path:'obra/:id',
     component:ShellDashboardComponent,
-    resolve: {aliasRouteObra:ObraResolveRoute}
+    //resolve: {aliasRouteObra:ObraResolveRoute}//no resuelve nada por que necesita el id que viene desde lista obras y trae el id de la obra
   },
   {
     path:'expediente/:id',

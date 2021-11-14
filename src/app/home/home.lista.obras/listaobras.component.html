@@ -11,7 +11,7 @@
 
   <nav>
     <ul>
-        <li *ngFor="let obra of [{id:'01',nombre:'detalle completo ',alias:'obra uno'},{id:'02',nombre:'detalle completo',alias:'obra dos'}]">
+        <li *ngFor="let obra of obras">
             <a [routerLink]="['/dashboard/obra',obra.id]">{{obra.alias}}</a>
         </li>
     </ul>
