@@ -21,10 +21,13 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 
+
+
 @NgModule({
   declarations: [
     ShellDashboardComponent,
-    MenuizquierdoComponent
+    MenuizquierdoComponent,
+    
   ],
   imports: [
     CommonModule,

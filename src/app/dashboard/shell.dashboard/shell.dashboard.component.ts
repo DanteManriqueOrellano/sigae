@@ -12,10 +12,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart } from '@angular/router';
-interface Food {
-  value: string;
-  viewValue: string;
-}
+
 
  /*Reemplazar estos valores con valores reales */
  
@@ -31,19 +28,15 @@ interface Food {
   providers:[ListServicesEjecucionObraGQL]
 })
 export class ShellDashboardComponent implements OnDestroy {
-
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+ 
 
   loading = false;
   title = 'angu-res';
 
   /*Reemplazar estos valores con valores reales */
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  
 
   
   subs:Subscription
@@ -72,36 +65,37 @@ export class ShellDashboardComponent implements OnDestroy {
   }
   ngOnDestroy(): void {
   
-    this.subs.unsubscribe()
+   // this.subs.unsubscribe()
     
   }
 
-  ngAfterViewInit() {
-    this.observer
-      .observe(['(max-width: 800px)'])
-      .pipe(delay(1))
-      .subscribe((res) => {
-        if (res.matches) {
-          this.sidenav.mode = 'over';
-          this.sidenav.close();
-        } else {
-          this.sidenav.mode = 'side';
-          this.sidenav.open();
-        }
-      });
-      this.id = this.route.snapshot.paramMap.get("id")//trae de la interfaz anterior
-      console.log(this.id)
-      this.subs = this.ejecucionObraServiceGQL.buscaobraById(this.busca.document,{id:this.id}).subscribe((val:any)=>{
-        console.log(val.buscaUnaEjecucionObra)
-        
-      })
-  }
+  
     
   
 
  goToInsumo(){
    this.router.navigate(['/insumo'])
  }
+ ngAfterViewInit() {
+  this.observer
+    .observe(['(max-width: 800px)'])
+    .pipe(delay(1))
+    .subscribe((res) => {
+      if (res.matches) {
+        this.sidenav.mode = 'over';
+        this.sidenav.close();
+      } else {
+        this.sidenav.mode = 'side';
+        this.sidenav.open();
+      }
+    });
+    //this.id = this.route.snapshot.paramMap.get("id")//trae de la interfaz anterior
+    //console.log(this.id)
+    //this.subs = this.ejecucionObraServiceGQL.buscaobraById(this.busca.document,{id:this.id}).subscribe((val:any)=>{
+      //console.log(val.buscaUnaEjecucionObra)
+      
+    //})
+}
     
   
   
