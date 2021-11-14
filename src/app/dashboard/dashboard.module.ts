@@ -19,8 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 
-
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -43,6 +43,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatListModule,
     MatSelectModule,
+    MatMenuModule,
+    MatDividerModule,
     
 
   ],
