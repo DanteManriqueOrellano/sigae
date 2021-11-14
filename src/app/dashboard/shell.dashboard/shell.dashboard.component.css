@@ -161,7 +161,11 @@ mat-toolbar {
   }
   .menu-button mat-icon {
     margin-right: 8px;
+    font-size: 20px;
+    color: lightgrey;
+
   }
+  
   .menu-button:hover {
     background-color: gold;
   }
