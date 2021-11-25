@@ -1,5 +1,96 @@
+body{
+    margin: 0;
+}
 .cabecera{
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     display: flex;
+    margin-top: 5px;
+}
+mat-toolbar-row{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.fixed-header {
+    min-height: 30px !important;
+    height: 40px !important;
+    flex-direction: row;
+}
+.contenedor_tablas{
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-evenly;
+
+
+}
+.table {
+  width: 70%;
+}
+
+.ficha_despacho_bajo{
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+.ficha_despacho{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+  
+    table, th, td {
+    border-collapse: collapse;
+    border-spacing: 1px; /* cellspacing */
+    padding: 0;
+    }
+
+    table td, table th {
+    padding: 0px; /* cellpadding */
+    font-size: 10px;
+    
+    
+}
+
+  .mat-row {
+    height: auto;
+    
+  }
+  
+
+  
+  .mat-cell {
+    padding: 8px 8px 8px 0;
+  }
+  .mat-header-row{
+      padding: 0;
+      height: auto;
+  }
+  
+  .pie{
+    margin-top: 10px;  
+    width: 100%;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: column;
+}
+.pie_row{
+  display: flex;
+}
+.table-container{
+  
+  margin-top: 5px;
+} 
+.my-form-field .mat-header-cell-wrapper {
+    margin-bottom: -1.25em;
 }

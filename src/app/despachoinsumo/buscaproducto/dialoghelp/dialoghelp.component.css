@@ -1,0 +1,44 @@
+
+.ficha_despacho{
+    width: 100;
+    display: flex;
+    justify-content: center;
+}
+.cabecera{
+    width: 100%;
+    display: flex;
+    background-color: yellow;
+    justify-content: space-between;
+}
+.origen_despacho{
+    background-color: violet;
+}
+.ficha_requerimiento{
+    
+    
+    background-color: tomato;
+}
+table{
+    width: 100%;
+    border: 1px solid ;
+}
+tr{
+    border: 1px solid;
+}
+.pie{
+    width: 100%;
+    display: flex;
+    background-color: tomato;
+    align-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: column;
+}
+.pie_row{
+    background-color: yellow;
+}
+.table-container{
+    margin-top: 40px;
+}
+

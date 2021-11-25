@@ -35,6 +35,8 @@ import {NgxPrintModule} from 'ngx-print';
 import { SatPopoverModule } from '@ncstate/sat-popover';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { EditcantidaddespachohelpComponent } from './editcantidaddespacho/editcantidaddespachohelp/editcantidaddespachohelp.component';
+import { BuscaproductoComponent } from './buscaproducto/buscaproducto.component';
+import { DialoghelpComponent } from './buscaproducto/dialoghelp/dialoghelp.component';
 
 
 
@@ -43,7 +45,9 @@ import { EditcantidaddespachohelpComponent } from './editcantidaddespacho/editca
   declarations: [
     EditcantidaddespachoComponent,
     PreviewdespachoComponent,
-    EditcantidaddespachohelpComponent
+    EditcantidaddespachohelpComponent,
+    BuscaproductoComponent,
+    DialoghelpComponent
   ],
   imports: [
     CommonModule,
@@ -96,6 +100,8 @@ import { EditcantidaddespachohelpComponent } from './editcantidaddespacho/editca
 
 
   ],
-  schemas:	[CUSTOM_ELEMENTS_SCHEMA]
+  schemas:	[CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents:[EditcantidaddespachoComponent],
+  
 })
 export class DespachoinsumoModule { }

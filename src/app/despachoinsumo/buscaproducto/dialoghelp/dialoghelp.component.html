@@ -1,0 +1,101 @@
+<!--
+  <p *ngFor="let data of dialogData.dialogContent">{{ data.insumo }}</p>
+-->
+
+
+
+
+
+<div>
+    <mat-progress-bar
+      mode="indeterminate"
+      *ngIf="stateService.sharingConvertObservable | async"
+      style="top: -25px"
+    ></mat-progress-bar>
+    <h1 mat-dialog-title>{{ dialogData.dialogHeader }}</h1>
+
+    <div mat-dialog-content>
+      <div style="padding: 32px">
+
+        <div class="example-container mat-elevation-z8">
+          <mat-table #table [dataSource]="dataSource">
+      
+            <!-- Name Column -->
+            <ng-container matColumnDef="insumo">
+              <mat-header-cell *matHeaderCellDef> Insumo </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.insumo}} </mat-cell>
+            </ng-container>
+      
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="umedida">
+              <mat-header-cell *matHeaderCellDef> U.Medida </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.umedida}} </mat-cell>
+            </ng-container>
+      
+            <!-- Comment Column -->
+            <ng-container matColumnDef="cantidad">
+              <mat-header-cell *matHeaderCellDef> cantidad </mat-header-cell>
+              
+              <mat-cell *matCellDef="let element" [satPopoverAnchor]="p" (click)="p.open()">
+              
+                <ng-container *ngIf="element.cantidad">
+                  {{element.cantidad}}
+                </ng-container>
+                <span class="add-comment" *ngIf="!element.cantidad">
+                  Add a cantidad
+                </span>
+      
+                
+                    
+                <sat-popover #p
+                    backdropClass="app-fancy-backdrop"
+                    openTransition="250ms ease-out"
+                    closeTransition="100ms ease-in"
+                    xAlign="start"
+                    yAlign="start"
+                    (closed)="update(element, $event)">
+                  <app-editcantidaddespachohelp [value]="element.cantidad"></app-editcantidaddespachohelp>
+                </sat-popover>
+    
+                
+    
+    
+              </mat-cell>
+            </ng-container>
+      
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+      
+        </div>
+      
+      </div>
+
+
+
+
+    </div>
+
+    <div mat-dialog-actions>
+      <button
+        mat-button
+        (click)="handleDialogSubmit()"
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="dialogData.animal"
+        [disabled]="stateService.sharingConvertObservable | async"
+      >
+        {{ dialogData.confirmButtonLabel }}
+      </button>
+      <button
+        mat-button
+        cdkFocusInitial
+        (click)="closeDialog()"
+        [disabled]="stateService.sharingConvertObservable | async"
+        mat-raised-button
+        color="accent"
+      >
+        {{ dialogData.cancelButtonLabel }}
+      </button>
+    </div>
+</div>

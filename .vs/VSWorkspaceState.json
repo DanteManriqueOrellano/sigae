@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\despachoinsumo",
+    "\\src\\app\\despachoinsumo\\editcantidaddespacho",
+    "\\src\\app\\despachoinsumo\\graphql",
+    "\\src\\app\\despachoinsumo\\graphql\\mutation"
+  ],
+  "SelectedNode": "\\src\\app\\despachoinsumo\\graphql\\services.despachoinsumo.gql.ts",
+  "PreviewInSolutionExplorer": false
+}

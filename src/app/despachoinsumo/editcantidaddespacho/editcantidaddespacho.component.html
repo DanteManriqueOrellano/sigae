@@ -1,62 +1,365 @@
-<p class="cabecera">editcantidaddespacho works!</p>
-<div style="padding: 32px">
-
-  <div class="example-container mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource">
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-      </ng-container>
-
-      <!-- Comment Column -->
-      <ng-container matColumnDef="comment">
-        <mat-header-cell *matHeaderCellDef> Comment </mat-header-cell>
-        
-        <mat-cell *matCellDef="let element" [satPopoverAnchor]="p" (click)="p.open()">
-        
-          <ng-container *ngIf="element.comment">
-            {{element.comment}}
-          </ng-container>
-          <span class="add-comment" *ngIf="!element.comment">
-            Add a comment
-          </span>
-
-          
-              
-          <sat-popover #p
-              backdropClass="app-fancy-backdrop"
-              openTransition="250ms ease-out"
-              closeTransition="100ms ease-in"
-              xAlign="start"
-              yAlign="start"
-              (closed)="update(element, $event)">
-            
-            <app-editcantidaddespachohelp [value]="element.comment"></app-editcantidaddespachohelp>
-          </sat-popover>
-
-          
+<mat-toolbar color="primary" class="fixed-header">
+  <mat-toolbar-row >
+    <span mat-dialog-title class="cabecera">{{ dialogData.dialogHeader }}</span>
+  </mat-toolbar-row>
+  
+</mat-toolbar>
 
 
-        </mat-cell>
-      </ng-container>
+<div mat-dialog-content class="table-container" style="padding: 5px" id="print"   [formGroup]="formGroup">
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
+  <div class="ficha_despacho">
+    <label>Ficha Despacho N°:</label>
+      
+
+              <input class="input is-small" type="text" placeholder="Ficha Despacho N°" [formControlName]="formControlNames.nroDespacho">
+  
+
+
+
+
+
 
   </div>
+  <div class="cabecera">
+    
+
+    <div class="origen_despacho">A) DATOS QUE ORIGINA EL DESPACHO </div>
+    <div class="ficha_requerimiento">
+      <label>Ficha de Requerimiento N°:</label>
+      <input class="input is-small" type="text" placeholder="Ficha de Requerimiento" [formControlName]="formControlNames.nroRequerimiento">
+    </div>
+
+  </div>
+  <p>B) MATERIALES O INSUMOS SEGUN REQUERIMIENTO</p>
+
+  <section class="container">
+    <div class="row justify-content-center ">
+      <div class="col border">
+        <table class="table" mat-table #table [dataSource]="dataSource" >
+      
+          <ng-container matColumnDef="id">
+            <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef class="my-form-field"> id </th>
+            <td  mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="insumo">
+            <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef> insumo </th>
+            <td mat-cell *matCellDef="let element"> {{element.insumo}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="umedida">
+            <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef> umedida </th>
+            <td mat-cell *matCellDef="let element"> {{element.umedida}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="cantidad">
+            <th scope="col col-sm-2" mat-header-cell *matHeaderCellDef> cantidad </th>
+            
+            <td mat-cell *matCellDef="let element" [satPopoverAnchor]="p" (click)="p.open()">
+            
+              <ng-container *ngIf="element.cantidad">
+                {{element.cantidad}}
+              </ng-container>
+              <span class="add-comment" *ngIf="!element.cantidad">
+                agrega cantidad
+              </span>
+    
+              
+                  
+              <sat-popover #p
+                  backdropClass="app-fancy-backdrop"
+                  openTransition="250ms ease-out"
+                  closeTransition="100ms ease-in"
+                  xAlign="start"
+                  yAlign="start"
+                  (closed)="update(element, $event)">
+                
+                <app-editcantidaddespachohelp [value]="element.cantidad"></app-editcantidaddespachohelp>
+              </sat-popover>
+    
+              
+    
+    
+            </td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+      </div>
+
+    
+
+     <!--segunda columna-->
+    
+     <div class="col border">
+      <table class="table" mat-table #table [dataSource]="dataSource" >
+    
+        <ng-container matColumnDef="id">
+          <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef class="my-form-field"> id </th>
+          <td  mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="insumo">
+          <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef> insumo </th>
+          <td mat-cell *matCellDef="let element"> {{element.insumo}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="umedida">
+          <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef> umedida </th>
+          <td mat-cell *matCellDef="let element"> {{element.umedida}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="cantidad">
+          <th scope="col col-sm-3 col-sm-2" mat-header-cell *matHeaderCellDef> cantidad </th>
+          
+          <td mat-cell *matCellDef="let element" [satPopoverAnchor]="p" (click)="p.open()">
+          
+            <ng-container *ngIf="element.cantidad">
+              {{element.cantidad}}
+            </ng-container>
+            <span class="add-comment" *ngIf="!element.cantidad">
+              agrega cantidad
+            </span>
+  
+            
+                
+            <sat-popover #p
+                backdropClass="app-fancy-backdrop"
+                openTransition="250ms ease-out"
+                closeTransition="100ms ease-in"
+                xAlign="start"
+                yAlign="start"
+                (closed)="update(element, $event)">
+              
+              <app-editcantidaddespachohelp [value]="element.cantidad"></app-editcantidaddespachohelp>
+            </sat-popover>
+  
+            
+  
+  
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+     </div>
+
+
+    </div>
+    
+    
+
+  </section>
+  
+  
+  <div class="pie">
+    <div class="pie_row">
+      <p>C) INFORMACIÓN COMPLEMENTARIA</p>
+
+    </div>
+    <div class="pie_row">
+      <label>fecha de Pedido:</label>
+        <input class="input is-small" type="text" placeholder="fecha de Pedido" [formControlName]="formControlNames.fechaPedido">
+        <label>fecha de Despacho:</label>
+        <input class="input is-small" type="text" placeholder="Fecha de Despacho" [formControlName]="formControlNames.fechaDespacho">
+        
+    </div>
+    
+  </div>
+
+  <!--segun parte de la hoja-->
+
+  <header style="visibility: hidden; max-height: 0;">
+    <div class="ficha_despacho_bajo">
+      <label>Ficha Despacho N°:</label>
+                {{formGroupValues.nroDespacho}}
+    </div>
+    <div class="cabecera_bajo">
+      
+  
+      <div class="origen_despacho">A) DATOS QUE ORIGINA EL DESPACHO </div>
+      <div class="ficha_requerimiento">
+        <label>Ficha de Requerimiento N°:</label>
+        {{formGroupValues.nroRequerimiento}}
+      </div>
+  
+    </div>
+    <p>B) MATERIALES O INSUMOS SEGUN REQUERIMIENTO</p>
+  
+    <section class="container">
+      <div class="row justify-content-center ">
+        <div class="col border der ">
+          <table class="table" mat-table #table [dataSource]="dataSource" >
+        
+            <ng-container matColumnDef="id">
+              <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef class="my-form-field"> id </th>
+              <td  mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="insumo">
+              <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef> insumo </th>
+              <td mat-cell *matCellDef="let element"> {{element.insumo}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="umedida">
+              <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef> umedida </th>
+              <td mat-cell *matCellDef="let element"> {{element.umedida}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="cantidad">
+              <th scope="col col-sm-2" mat-header-cell *matHeaderCellDef> cantidad </th>
+              
+              <td mat-cell *matCellDef="let element" [satPopoverAnchor]="p" (click)="p.open()">
+              
+                <ng-container *ngIf="element.cantidad">
+                  {{element.cantidad}}
+                </ng-container>
+                <span class="add-comment" *ngIf="!element.cantidad">
+                  agrega cantidad
+                </span>
+      
+                
+                    
+                <sat-popover #p
+                    backdropClass="app-fancy-backdrop"
+                    openTransition="250ms ease-out"
+                    closeTransition="100ms ease-in"
+                    xAlign="start"
+                    yAlign="start"
+                    (closed)="update(element, $event)">
+                  
+                  <app-editcantidaddespachohelp [value]="element.cantidad"></app-editcantidaddespachohelp>
+                </sat-popover>
+      
+                
+      
+      
+              </td>
+            </ng-container>
+      
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    
+        </div>
+  
+      
+  
+       <!--segunda columna-->
+      
+       <div class="col border der">
+        <table class="table" mat-table #table [dataSource]="dataSource" >
+      
+          <ng-container matColumnDef="id">
+            <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef class="my-form-field"> id </th>
+            <td  mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="insumo">
+            <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef> insumo </th>
+            <td mat-cell *matCellDef="let element"> {{element.insumo}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="umedida">
+            <th scope="col fs-6 col-sm-2" mat-header-cell *matHeaderCellDef> umedida </th>
+            <td mat-cell *matCellDef="let element"> {{element.umedida}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="cantidad">
+            <th scope="col col-sm-3 col-sm-2" mat-header-cell *matHeaderCellDef> cantidad </th>
+            
+            <td mat-cell *matCellDef="let element" [satPopoverAnchor]="p" (click)="p.open()">
+            
+              <ng-container *ngIf="element.cantidad">
+                {{element.cantidad}}
+              </ng-container>
+              <span class="add-comment" *ngIf="!element.cantidad">
+                agrega cantidad
+              </span>
+    
+              
+                  
+              <sat-popover #p
+                  backdropClass="app-fancy-backdrop"
+                  openTransition="250ms ease-out"
+                  closeTransition="100ms ease-in"
+                  xAlign="start"
+                  yAlign="start"
+                  (closed)="update(element, $event)">
+                
+                <app-editcantidaddespachohelp [value]="element.cantidad"></app-editcantidaddespachohelp>
+              </sat-popover>
+    
+              
+    
+    
+            </td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+      </div>
+  
+  
+      </div>
+      
+      
+  
+    </section>
+    
+    
+    <div class="pie">
+      <div class="pie_row">
+        <p>C) INFORMACIÓN COMPLEMENTARIA</p>
+  
+      </div>
+      <div class="pie_row">
+        <label>fecha de Pedido:</label>
+         {{formGroupValues.fechaPedido}}
+          <label>fecha de Despacho:</label>
+          {{formGroupValues.fechaDespacho}}
+          
+      </div>
+      
+    </div>
+  </header>
+  
 
 </div>
 
 
-<!--
-<app-previewdespacho></app-previewdespacho>
--->
+
+<div mat-dialog-actions>
+  <button
+    mat-button
+    (click)="handleDialogSubmit()"
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="dialogData.animal"
+  
+    [disabled]="false"
+  
+  >
+    {{ dialogData.confirmButtonLabel }}
+  </button>
+  <button
+    mat-button
+    cdkFocusInitial
+    (click)="closeDialog()"
+    [disabled]="false"
+    mat-raised-button
+    
+    color="accent"
+  >
+    {{ dialogData.cancelButtonLabel }}
+  </button>
+  
+</div>
+

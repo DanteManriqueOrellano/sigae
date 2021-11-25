@@ -12,6 +12,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart } from '@angular/router';
+import { ServiceIdFromObra } from './service.id';
 
 
  /*Reemplazar estos valores con valores reales */
@@ -50,8 +51,9 @@ export class ShellDashboardComponent implements OnDestroy {
     private ejecucionObraServiceGQL:ListServicesEjecucionObraGQL,
     private busca:BuscaByIdEjecucionObraServiceGQL,
     public spinner: NgxSpinnerService,
+    public serviceIdFromObra:ServiceIdFromObra
     ) {
-      this.spinner.show()
+      //this.spinner.show()
       this.router.events.subscribe(ev => {
         if (ev instanceof NavigationStart) {
           this.loading = true;
@@ -62,16 +64,17 @@ export class ShellDashboardComponent implements OnDestroy {
       });
       
    
-
+      this.serviceIdFromObra.set(this.route.snapshot.params['id']) 
   }
   ngOnDestroy(): void {
   
    this.subs.unsubscribe()
     
   }
-  despacho(id:string){
+  despacho(){
+    //console.log(id)
     
-    this.router.navigate(['/despacho',id])
+    this.router.navigate(['/despacho',this.route.snapshot.params['id']])
   }
 
   

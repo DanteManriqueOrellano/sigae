@@ -14,7 +14,7 @@
     <span>CORPORACION AQUA PERU S.A.C</span>
 <span class="example-spacer"></span>
 <mat-form-field appearance="fill" class="baja">
-    <mat-label >Favorite food</mat-label>
+    <mat-label >Proyectos</mat-label>
     <mat-select>
       <mat-option *ngFor="let food of [{value:'1',viewValue:'primero'},{value:'2',viewValue:'segundo'}]" [value]="food.value">
         {{food.viewValue}}
@@ -72,7 +72,7 @@
             <app-submenu></app-submenu>    
                 
             
-            <div *ngIf='loading' id="myModal" class="modal">
+            <!--<div *ngIf='loading' id="myModal" class="modal">
                 <div class="lds-roller">
                   <div></div>
                   <div></div>
@@ -84,6 +84,7 @@
                   <div></div>
                 </div>
               </div>
+            -->
 
               
               <router-outlet></router-outlet>

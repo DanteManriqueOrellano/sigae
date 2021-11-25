@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import {Apollo,gql,QueryRef} from "apollo-angular"
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { map, share, take, tap } from 'rxjs/operators';
+import { IInsumoObraModel } from './ejecucion.obra/models/insumo.models';
 
-import { EObra } from '../models/obra';
 
 export interface Product {
   id: string,
@@ -48,13 +48,13 @@ export class ObraService {
  
   private readonly loading = new BehaviorSubject<boolean>(false);
   readonly isLoading = this.loading.asObservable().pipe(share());
-  private insumosSubject:BehaviorSubject<EObra[]> = new BehaviorSubject<EObra[]>([]);
+  private insumosSubject:BehaviorSubject<IInsumoObraModel[]> = new BehaviorSubject<IInsumoObraModel[]>([]);
   private insumosSubject1:BehaviorSubject<Persona[]> = new BehaviorSubject<Persona[]>([]);
   
   get obraToObservable(){
     return this.insumosSubject.asObservable()
   }
-  set obraEmitData(data:EObra[]){
+  set obraEmitData(data:IInsumoObraModel[]){
     this.insumosSubject.next(data)
     this.insumosSubject.complete()
   }

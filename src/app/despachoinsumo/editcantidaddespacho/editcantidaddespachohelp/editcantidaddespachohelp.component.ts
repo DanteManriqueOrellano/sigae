@@ -6,11 +6,11 @@ import { filter } from 'rxjs/operators';
   selector: 'app-editcantidaddespachohelp',
   template: `
     <form (ngSubmit)="onSubmit()">
-      <div class="mat-subheading-2">Add a comment</div>
+      <div class="mat-subheading-2">agrega cantidad</div>
       
       <mat-form-field>
-        <input matInput maxLength="140" name="comment" [(ngModel)]="comment">
-        <mat-hint align="end">{{comment?.length || 0}}/140</mat-hint>
+        <input matInput maxLength="3" name="cantidad" [(ngModel)]="cantidad">
+        <mat-hint align="end">{{cantidad !== 0}}</mat-hint>
       </mat-form-field>
 
       <div class="actions">
@@ -25,14 +25,14 @@ export class EditcantidaddespachohelpComponent implements OnInit {
 
   /** Overrides the comment and provides a reset value when changes are cancelled. */
   @Input()
-  get value(): string { return this._value; }
-  set value(x: string) {
-    this.comment = this._value = x;
+  get value(): number { return this._value; }
+  set value(x: number) {
+    this.cantidad = this._value = x;
   }
-  private _value = '';
+  private _value = 0;
 
   /** Form model for the input. */
-  comment = '';
+  cantidad = 0;
 
   constructor(@Optional() @Host() public popover: SatPopover) { }
 
@@ -40,13 +40,13 @@ export class EditcantidaddespachohelpComponent implements OnInit {
     // subscribe to cancellations and reset form value
     if (this.popover) {
       this.popover.closed.pipe(filter(val => val == null))
-        .subscribe(() => this.comment = this.value || '');
+        .subscribe(() => this.cantidad = this.value || 0);
     }
   }
 
   onSubmit() {
     if (this.popover) {
-      this.popover.close(this.comment);
+      this.popover.close(this.cantidad);
     }
   }
 

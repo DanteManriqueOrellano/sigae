@@ -3,8 +3,7 @@ import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from "@a
 import { Observable } from "rxjs";
 import { ListServicesEjecucionObraGQL } from "src/app/core/globalservice/ejecucion.obra/graphql/services/list.services.ejecucion.obraGQL";
 import { IEjecucionObraModel } from "src/app/core/globalservice/ejecucion.obra/models/ejecucion.obra.model";
-import { ObraService, Persona, Product } from "src/app/core/globalservice/obra.service";
-import { EObra } from "src/app/core/models/obra";
+
 
 @Injectable({
     providedIn:'root',
